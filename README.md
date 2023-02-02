@@ -1,2 +1,2 @@
 # freecodecamp
-This is some project results from my freecodecamp journey
+This is some projects from my freecodecamp journey
