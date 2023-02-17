@@ -1,0 +1,28 @@
+  # You should create a periodic_table folder in the project folder and turn it into a git repository with git init
+	pg_dump -cC --inserts -U freecodecamp periodic_table > periodic_table.sql
+	mkdir periodic_table
+	cd periodic_table
+	git init
+
+  # Your repository should have a main branch with all your commits
+	git checkout -b main
+
+  # Your periodic_table repo should have at least five commits
+	git commit -m "refactor: give executable permissions on element.sh"
+	git commit -m "fix: table periodic"
+	git commit -m "feat: create function to start program"
+	git commit -m "chore: find necessary value and printout the output"
+	git commit -m "chore: create the main program"
+
+  # You should create an element.sh file in your repo folder for the program I want you to make
+	touch element.sh
+
+  # Your script (.sh) file should have executable permissions
+	chmod +x element.sh
+
+  # The message for the first commit in your repo should be Initial commit
+	git commit -m "Initial commit"
+
+  # The rest of the commit messages should start with fix:, feat:, refactor:, chore:, or test:
+
+  # You should finish your project while on the main branch. Your working tree should be clean and you should not have any uncommitted changes
