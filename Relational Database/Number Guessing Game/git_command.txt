@@ -1,0 +1,67 @@
+To complete this project, you need to write a script that generates a random number between 1 and 1000 for users to guess. 
+
+Create a number_guess database to hold the information suggested in the user stories. 
+Connect to the interactive psql shell with psql --username=freecodecamp --dbname=postgres to create the database.
+
+type in terminal :
+psql --username=freecodecamp --dbname=postgres
+CREATE DATABASE number_guess;
+\c number_guess
+quit
+psql --username=freecodecamp --dbname=number_guess
+CREATE TABLE users(
+	user_id SERIAL PRIMARY KEY, 
+	username VARCHAR(22) NOT NULL UNIQUE,
+	frequent_games int DEFAULT 0 NOT NULL
+);
+
+CREATE TABLE games(
+ 	game_id SERIAL PRIMARY KEY, 
+ 	user_id int NOT NULL, 
+ 	best_guess int DEFAULT 0 NOT NULL, 
+ 	FOREIGN KEY(user_id) REFERENCES users(user_id)
+);
+
+quit
+pg_dump -cC --inserts -U freecodecamp number_guess > number_guess.sql
+#------------------------------------------------------------------------------------------------------------------------
+
+Create a number_guessing_game folder in the project folder for your program
+	mkdir number_guesssing_game
+	cd number_guesssing_game
+
+Turn the number_guessing_game folder into a git repository
+	git init
+
+You should finish your project while on the main branch, your working tree should be clean, 
+and you should not have any uncommitted changes
+	git checkout -b main
+
+Create number_guess.sh in your number_guessing_game folder and give it executable permissions
+	touch number_guess.sh
+
+Your script should have a shebang at the top of the file that uses #!/bin/bash
+	type on number_guess.sh :
+	#!/bin/bash
+	#In your script, you can create a PSQL variable for querying the database like this: 
+	PSQL="psql --username=freecodecamp --dbname=number_guess -t --no-align -c"
+	
+The message for the first commit should be Initial commit
+	git add number_guess.sh
+	git commit -m "Initial commit"
+
+The rest of the commit messages should start with fix:, feat:, refactor:, chore:, or test:
+	chmod +x number_guess.sh
+	git commit -m "refactor: give executable permissions on number_guess.sh"
+	git commit -m "test: create some test functions"
+	git commit -m "feat: create function to input name and input number guess"
+	git commit -m "feat: create function to check the input number"
+	git commit -m "feat: create function to print the checking result"
+	git commit -m "feat: create function to save the game"
+	git commit -m "test: doing test on some functions"
+	git commit -m "refactor: justify some variables"
+	git commit -m "test:doing test on refactoring"
+	git commit -m "test: doing test on checking answer"
+	git commit -m "test: doing another test on checking answer"
+
+Your git repository should have at least five commits
